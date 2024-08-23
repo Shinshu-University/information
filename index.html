@@ -1,0 +1,62 @@
+<DOCTYPE! html>
+  <html>
+    <body>
+      <style id="style">
+        html{background-image: url("https://shinshu-university.github.io/information/1.png");}
+      </style>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+        html {
+          background-size: 100% auto;
+          background-repeat: no-repeat;
+          font-family: "Zen Kaku Gothic Antique", sans-serif;
+          font-weight: 700;
+          height: 1000%;
+          width: 100%;
+          box-sizing:border-box;
+        }
+        body {
+          height: 100%;
+          width: 100%;
+        }
+        .clock {
+          positon: absolute;
+          text-align: right;
+          font-size: 105px;
+          margin-top: -40px;
+          margin-right: 20px
+        }
+        .left {
+          width: 100%;
+          height: 20px;
+          text-align: center;
+          z-index: 999;
+          background-color: gray;
+          ｔ
+        }
+      </style>
+      <body>
+        <div class="clock"><p id="clock"></p></div>
+        <!-- <div class="left">あと30秒です</div> -->
+        <script>
+        function updateClock() {
+          const now = new Date();
+          const hours = now.getHours();
+          const mins = now.getMinutes();
+          const secs = now.getSeconds();
+          document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
+          if (hours+":"+mins+":"+secs == '12:18:0') {
+            document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/2.png");}';
+            const audio = new Audio('https://shinshu-university.github.io/information/sound1.mp3');
+            audio.play();
+          } else if (hours+":"+mins+":"+secs == '12:20:0') {
+            document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/3.png");}';
+            const audio = new Audio('https://shinshu-university.github.io/information/sound1.mp3');
+            audio.play();
+          }
+          setTimeout(updateClock, 1000);
+        }
+        updateClock();
+  </script>
+      </body>
+  </html>
