@@ -39,6 +39,10 @@
         <div class="clock"><p id="clock"></p></div>
         <!-- <div class="left">あと30秒です</div> -->
         <script>
+        function audio(num) {
+          const audiopass = new Audio('https://shinshu-university.github.io/information/sound'+num+'.mp3');
+          audiopass.play();
+        }
         function updateClock() {
           const now = new Date();
           const hours = now.getHours();
@@ -47,12 +51,10 @@
           document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
           if (hours+":"+mins+":"+secs == '12:18:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/2.png");}';
-            const audio = new Audio('https://shinshu-university.github.io/information/sound1.mp3');
-            audio.play();
+            audio(1);
           } else if (hours+":"+mins+":"+secs == '12:20:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/3.png");}';
-            const audio = new Audio('https://shinshu-university.github.io/information/sound1.mp3');
-            audio.play();
+            audio(1);
           }
           setTimeout(updateClock, 1000);
         }
