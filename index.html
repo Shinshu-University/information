@@ -13,7 +13,7 @@
           font-weight: 700;
           height: 1000%;
           width: 100%;
-          box-sizing:border-box;
+          box-sizing: border-box;
         }
         body {
           height: 100%;
@@ -22,26 +22,54 @@
         .clock {
           positon: absolute;
           text-align: right;
-          font-size: 105px;
-          margin-top: -40px;
-          margin-right: 20px
+          font-size: 11vw;
+          margin-top: -4vh;
+          margin-right: 2vw;
         }
-        .left {
+        #left {
           width: 100%;
-          height: 20px;
+          height: 20vh;
           text-align: center;
           z-index: 999;
-          background-color: gray;
-          ｔ
+          background-color: rgba(92,92,92,0.8);
+          color: white;
+          font-size: 11vw;
+          margin: auto;
+          padding: 0;
+        }
+        .fadeout {
+          animation : fadeOut 5s;
+          animation-fill-mode: both;
+        }
+        @keyframes fadeOut {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
         }
       </style>
       <body>
         <div class="clock"><p id="clock"></p></div>
-        <!-- <div class="left">あと30秒です</div> -->
+        <div class="" id="left" style="display:none">あと30秒です</div>
         <script>
+            left30();
         function audio(num) {
           const audiopass = new Audio('https://shinshu-university.github.io/information/sound'+num+'.mp3');
           audiopass.play();
+        }
+        function left30() {
+          document.getElementById('left').style.display = '';
+          setTimeout( function() {
+            document.getElementById('left').classList.add('fadeout');
+            audio(1);
+            setTimeout( function() { 
+                document.getElementById('left').style.display = 'none';
+                document.getElementById('left').classList.remove('fadeout');
+            }, 10000);
+          }, 3000);
+
         }
         function updateClock() {
           const now = new Date();
@@ -51,10 +79,14 @@
           document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
           if (hours+":"+mins+":"+secs == '12:18:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/2.png");}';
-            audio(1);
+            audio(2);
           } else if (hours+":"+mins+":"+secs == '12:20:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/3.png");}';
-            audio(1);
+            audio(2);
+          } else if (hours+":"+mins+":"+secs == '12:17:30') {
+            left30();
+          } else if (hours+":"+mins+":"+secs == '12:19:30') {
+            left30();
           }
           setTimeout(updateClock, 1000);
         }
