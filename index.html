@@ -1,5 +1,8 @@
 <DOCTYPE! html>
   <html>
+    <head>
+      <title>情報委員会</title>
+    </head>
     <body>
       <style id="style">
         html{background-image: url("https://shinshu-university.github.io/information/1.png");}
@@ -28,7 +31,7 @@
         }
         #left {
           width: 100%;
-          height: 20vh;
+          height: 150px;
           text-align: center;
           z-index: 999;
           background-color: rgba(92,92,92,0.8);
@@ -54,16 +57,16 @@
         <div class="clock"><p id="clock"></p></div>
         <div class="" id="left" style="display:none">あと30秒です</div>
         <script>
-            left30();
+            //left30();
         function audio(num) {
           const audiopass = new Audio('https://shinshu-university.github.io/information/sound'+num+'.mp3');
           audiopass.play();
         }
         function left30() {
           document.getElementById('left').style.display = '';
+          audio(1);
           setTimeout( function() {
             document.getElementById('left').classList.add('fadeout');
-            audio(1);
             setTimeout( function() { 
                 document.getElementById('left').style.display = 'none';
                 document.getElementById('left').classList.remove('fadeout');
