@@ -64,7 +64,7 @@
         }
         function left30() {
           document.getElementById('left').style.display = '';
-          audio(1);
+          audio(2);
           setTimeout( function() {
             document.getElementById('left').classList.add('fadeout');
             setTimeout( function() { 
@@ -82,10 +82,10 @@
           document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
           if (hours+":"+mins+":"+secs == '12:18:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/2.png");}';
-            audio(2);
+            audio(1);
           } else if (hours+":"+mins+":"+secs == '12:20:0') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/3.png");}';
-            audio(2);
+            audio(1);
           } else if (hours+":"+mins+":"+secs == '12:17:30') {
             left30();
           } else if (hours+":"+mins+":"+secs == '12:19:30') {
