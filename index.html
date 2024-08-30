@@ -29,7 +29,7 @@
           margin-top: -4vh;
           margin-right: 2vw;
         }
-        #left {
+        #left, #left10 {
           width: 100%;
           height: 200px;
           text-align: center;
@@ -56,6 +56,7 @@
       <body>
         <div class="clock"><p id="clock"></p></div>
         <div class="" id="left" style="display:none">あと30秒です</div>
+        <div class="" id="left10" style="display:none">あと10秒です</div>
         <script>
             //left30();
         function audio(num) {
@@ -73,7 +74,20 @@
             }, 10000);
           }, 3000);
         }
-        function left5() {
+        function left10() {
+          document.getElementById('left').style.display = '';
+          audio(2);
+          setTimeout( function() {
+            for (let i=0;i=5;i++) {
+              audio(3);
+              setTimeout(console.log(''), 1000);
+            };
+            document.getElementById('left10').classList.add('fadeout');
+            setTimeout( function() { 
+                document.getElementById('left10').style.display = 'none';
+                document.getElementById('left10').classList.remove('fadeout');
+            }, 10000);
+          }, 5000);
         }
         function dofuntion(callback) {
            callback();
@@ -94,6 +108,10 @@
             left30();
           } else if (hours+":"+mins+":"+secs == '12:19:30') {
             left30();
+          } else if (hours+":"+mins+":"+secs == '12:17:50') {
+            left10();
+          } else if (hours+":"+mins+":"+secs == '12:19:50') {
+            left10();
           }
           setTimeout(updateClock, 1000);
         }
