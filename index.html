@@ -74,14 +74,17 @@
             }, 10000);
           }, 3000);
         }
+        function audio3(num) {
+          audio(3);
+          if (num != 5) {
+            setTimeout( audio3(Number(num)+1), 1000)
+          }
+        }
         function left10() {
           document.getElementById('left10').style.display = '';
           audio(2);
           setTimeout( function() {
-            for (let i = 0;i == 5;i++) {
-              audio(3);
-              setTimeout(console.log(''), 1000);
-            };
+            audio3(0);
             document.getElementById('left10').classList.add('fadeout');
             setTimeout( function() { 
                 document.getElementById('left10').style.display = 'none';
