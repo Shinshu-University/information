@@ -97,14 +97,14 @@
         }
         function updateClock() {
           const now = new Date();
-          const hours = now.getHours();
-          const mins = now.getMinutes();
-          const secs = now.getSeconds();
+          const hours = now.getHours().toString().padStart(2, "0");
+          const mins = now.getMinutes().toString().padStart(2, "0");
+          const secs = now.getSeconds().toString().padStart(2, "0");
           document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
-          if (hours+":"+mins+":"+secs == '12:18:0') {
+          if (hours+":"+mins+":"+secs == '12:18:00') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/2.png");}';
             audio(1);
-          } else if (hours+":"+mins+":"+secs == '12:20:0') {
+          } else if (hours+":"+mins+":"+secs == '12:20:00') {
             document.getElementById('style').textContent = 'html{background-image: url("https://shinshu-university.github.io/information/3.png");}';
             audio(1);
           } else if (hours+":"+mins+":"+secs == '12:17:30') {
