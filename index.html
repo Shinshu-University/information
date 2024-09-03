@@ -79,7 +79,13 @@
           audio(2);
           setTimeout( async function() {
             var count = 0;
-            await setInterval ( function() { audio(3); count++; if(count == 5){clearInterval();}} ,1000);
+            await setInterval ( function() {
+              audio(3);
+              count++;
+              if (count == 5) {
+                clearInterval(intervalid);
+              }
+            } ,1000).then((value) => { var intervalid = value; });;
             document.getElementById('left10').classList.add('fadeout');
             setTimeout( function() { 
                 document.getElementById('left10').style.display = 'none';
