@@ -78,17 +78,14 @@
           document.getElementById('left10').style.display = '';
           audio(2);
           setTimeout( async function() {
-            await setTimeout ( async function() {await audio(3);} ,1000);
-            await setTimeout ( async function() {await audio(3);} ,1000);
-            await setTimeout ( async function() {await audio(3);} ,1000);
-            await setTimeout ( async function() {await audio(3);} ,1000);
-            await setTimeout ( async function() {await audio(3);} ,1000);
+            var count = 0;
+            await setInterval ( function() { audio(3); count++; if(count == 5){clearInterval();}} ,1000);
             document.getElementById('left10').classList.add('fadeout');
             setTimeout( function() { 
                 document.getElementById('left10').style.display = 'none';
                 document.getElementById('left10').classList.remove('fadeout');
             }, 10000);
-          }, 5000);
+          }, 4000);
         }
         function dofuntion(callback) {
            callback();
