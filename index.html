@@ -78,12 +78,11 @@
           document.getElementById('left10').style.display = '';
           audio(2);
           setTimeout( function() {
-            setTimeout ( async function() {await audio(3);} ,1000);
-            setTimeout ( async function() {await audio(3);} ,1000);
-            setTimeout ( async function() {await audio(3);} ,1000);
-            setTimeout ( async function() {await audio(3);} ,1000);
-            setTimeout ( async function() {await audio(3);} ,1000);
-            
+            await setTimeout ( async function() {await audio(3);} ,1000);
+            await setTimeout ( async function() {await audio(3);} ,1000);
+            await setTimeout ( async function() {await audio(3);} ,1000);
+            await setTimeout ( async function() {await audio(3);} ,1000);
+            await setTimeout ( async function() {await audio(3);} ,1000);
             document.getElementById('left10').classList.add('fadeout');
             setTimeout( function() { 
                 document.getElementById('left10').style.display = 'none';
