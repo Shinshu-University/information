@@ -86,8 +86,8 @@
             }, 10000);
           }, 4000);
         }
-        function dofuntion(callback) {
-           callback();
+        function change(num) {
+           document.getElementById('style').textContent = `html{background-image: url("https://shinshu-university.github.io/information/${num}.png");}`;
         }
         function updateClock() {
           const now = new Date();
