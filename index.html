@@ -97,9 +97,6 @@
           const secs = now.getSeconds().toString().padStart(2, "0");
           document.getElementById('clock').textContent = hours+":"+mins+":"+secs;
           if (hours+":"+mins+":"+secs == '12:18:00') {
-            change(2);
-            audio(1);
-          } else if (hours+":"+mins+":"+secs == '12:19:00') {
             change(3);
             audio(1);
           } else if (hours+":"+mins+":"+secs == '12:17:30') {
